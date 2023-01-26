@@ -1,46 +1,13 @@
 <?php
-require_once './vendor/autoload.php';
 
-use BitWasp\Bitcoin\Crypto\Random\Random;
-use BitWasp\Bitcoin\Key\Factory\HierarchicalKeyFactory;
-use BitWasp\Bitcoin\Mnemonic\Bip39\Bip39Mnemonic;
-use BitWasp\Bitcoin\Mnemonic\Bip39\Bip39SeedGenerator;
-use BitWasp\Bitcoin\Mnemonic\MnemonicFactory;
 use BitWasp\Bitcoin\Address\AddressCreator;
 use BitWasp\Bitcoin\Key\Deterministic\HierarchicalKey;
+use BitWasp\Bitcoin\Key\Factory\HierarchicalKeyFactory;
+use BitWasp\Bitcoin\Mnemonic\Bip39\Bip39SeedGenerator;
 use BitWasp\Bitcoin\Script\P2shScript;
 use BitWasp\Bitcoin\Script\ScriptFactory;
 
- //生成助记词
-function createMnemonicWord(){
-    // Bip39
-    //$math = Bitcoin::getMath();
-    //$network = Bitcoin::getNetwork();
-    $random = new Random();
-    // 生成随机数(initial entropy)
-    $entropy = $random->bytes(Bip39Mnemonic::MIN_ENTROPY_BYTE_LEN);
-    $bip39 = MnemonicFactory::bip39();
-    // 通过随机数生成助记词
-    $mnemonic = $bip39->entropyToMnemonic($entropy);
-    // 输出助记词
-    return $mnemonic;
-}
-
-function createBtcAddress($mnemonicWord,$offset){
-    $seedGenerator = new Bip39SeedGenerator();
-    // 通过助记词生成种子，传入可选加密串'hello'
-    $seed = $seedGenerator->getSeed($mnemonicWord);
-    echo "seed: " . $seed->getHex() . PHP_EOL;				//种子
-    $hdFactory = new HierarchicalKeyFactory();
-    $master = $hdFactory->fromEntropy($seed);
-    $hardened = $master->derivePath("44'/0'/0'/0/".$offset);    //44的含义：https://github.com/bitcoin/bips
-    echo 'WIF: ' . $hardened->getPrivateKey()->toWif() . PHP_EOL;		  //私钥
-    
-    $pss = [44,49,84];
-    foreach($pss as $p){
-        purpose($seed, $p);
-    }
-}
+require_once './vendor/autoload.php';
 
 function getScriptPubKey(HierarchicalKey $key, $purpose)
 {
@@ -55,6 +22,19 @@ function getScriptPubKey(HierarchicalKey $key, $purpose)
         default:
             throw new \InvalidArgumentException("Invalid purpose");
     }
+}
+
+$mnemonic = "clerk copy mushroom cruel element tent crane enable tail better gather sting";
+
+$bip39 = new Bip39SeedGenerator();
+$seed = $bip39->getSeed($mnemonic);
+
+//$purpose = 44;
+//$purpose = 49;
+//$purpose = 84;
+$pss = [44,49,84];
+foreach($pss as $p){
+    purpose($seed, $p);
 }
 
 function purpose($seed, $purpose){
@@ -94,5 +74,3 @@ function purpose($seed, $purpose){
     echo "0/0: ".$addressCreator->fromOutputScript($script0)->getAddress().PHP_EOL;
     //echo "0/1: ".$addressCreator->fromOutputScript($script1)->getAddress().PHP_EOL;
 }
-
-$addr = createBtcAddress(createMnemonicWord(), 0);
