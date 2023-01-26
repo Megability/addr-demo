@@ -34,15 +34,15 @@ function createMnemonicWord(){
     return $mnemonic;
 }
 
-function createBtcAddress($mnemonicWord,$offset){
+function createBtcAddress($mnemonicWord){
     $seedGenerator = new Bip39SeedGenerator();
     // 通过助记词生成种子，传入可选加密串'hello'
     $seed = $seedGenerator->getSeed($mnemonicWord);
     echo "seed: " . $seed->getHex() . PHP_EOL;				//种子
-    $hdFactory = new HierarchicalKeyFactory();
-    $master = $hdFactory->fromEntropy($seed);
-    $hardened = $master->derivePath("44'/0'/0'/0/".$offset);    //44的含义：https://github.com/bitcoin/bips
-    echo 'WIF: ' . $hardened->getPrivateKey()->toWif() . PHP_EOL;		  //私钥
+    //$hdFactory = new HierarchicalKeyFactory();
+    //$master = $hdFactory->fromEntropy($seed);
+    //$hardened = $master->derivePath("44'/0'/0'/0/".$offset);    //44的含义：https://github.com/bitcoin/bips
+    //echo 'WIF: ' . $hardened->getPrivateKey()->toWif() . PHP_EOL;		  //私钥
 
     $pss = [44,49,84];
     foreach($pss as $p){
@@ -128,8 +128,9 @@ function purpose($seed, $purpose){
 
     $addressCreator = new AddressCreator();
     $script0 = getScriptPubKey($xpub->derivePath("0/0"), $purpose);
-    //$script1 = getScriptPubKey($xpub->derivePath("0/1"), $purpose);
     echo "0/0: ".$addressCreator->fromOutputScript($script0)->getAddress().PHP_EOL;
+    echo "0/0-PrivateKey: ".$root->derivePath("{$purpose}'/0'/0'/0/0")->getPrivateKey()->toWif().PHP_EOL;
+    //$script1 = getScriptPubKey($xpub->derivePath("0/1"), $purpose);
     //echo "0/1: ".$addressCreator->fromOutputScript($script1)->getAddress().PHP_EOL;
 }
 //-------------------------------------------------------
