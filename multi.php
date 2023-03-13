@@ -44,7 +44,7 @@ function createBtcAddress($mnemonicWord){
     //$hardened = $master->derivePath("44'/0'/0'/0/".$offset);    //44的含义：https://github.com/bitcoin/bips
     //echo 'WIF: ' . $hardened->getPrivateKey()->toWif() . PHP_EOL;		  //私钥
 
-    $pss = [44,49,84];
+    $pss = [44,49,84];//BIP44/49/84/86：规定 4 种标准的推导路径，地址分别是 1 、3 、bc1q 、bc1p 开头，脚本类型是 P2PKH 、P2SH-P2WPKH 、P2WPKH 、P2TR
     foreach($pss as $p){
         purpose($seed, $p);
     }
