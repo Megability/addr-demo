@@ -2,6 +2,7 @@
     "require": {
         "bitwasp/bitcoin": "^1.0",
         "web3p/ethereum-util": "^0.1.4",
-        "iexbase/tron-api": "^4.0"
+        "iexbase/tron-api": "^4.0",
+        "andkom/php-bitcoin-address": "^2.0"
     }
 }

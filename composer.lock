@@ -4,8 +4,60 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7c61dd7299fc39b82b1d7de508891d39",
+    "content-hash": "56e825730d17a52a894ce37a15149bf7",
     "packages": [
+        {
+            "name": "andkom/php-bitcoin-address",
+            "version": "2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/andkom/php-bitcoin-address.git",
+                "reference": "a7e1bcd7007cd4fd5a56eae0ae432207c0e2caf1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/andkom/php-bitcoin-address/zipball/a7e1bcd7007cd4fd5a56eae0ae432207c0e2caf1",
+                "reference": "a7e1bcd7007cd4fd5a56eae0ae432207c0e2caf1",
+                "shasum": ""
+            },
+            "require": {
+                "brooksyang/bech32m": "^1.0",
+                "btccom/cashaddress": "^0.0.3",
+                "ext-gmp": "*",
+                "php": ">=7.1",
+                "shanecurran/phpecc": "^0.0.1",
+                "stephenhill/base58": "^1.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": ">=5.7"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "AndKom\\Bitcoin\\Address\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andrei Komarov"
+                }
+            ],
+            "description": "A simple P2PK, P2PKH, P2SH, P2WPKH, P2WSH output script/address generator.",
+            "keywords": [
+                "address",
+                "bitcoin",
+                "generator"
+            ],
+            "support": {
+                "issues": "https://github.com/andkom/php-bitcoin-address/issues",
+                "source": "https://github.com/andkom/php-bitcoin-address/tree/2.0.1"
+            },
+            "time": "2023-11-16T14:34:41+00:00"
+        },
         {
             "name": "bitwasp/bech32",
             "version": "v0.0.1",
@@ -162,6 +214,98 @@
                 "source": "https://github.com/Bit-Wasp/buffertools-php/tree/v0.5.7"
             },
             "time": "2020-01-17T21:31:49+00:00"
+        },
+        {
+            "name": "brooksyang/bech32m",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/BrooksYang/bech32m.git",
+                "reference": "3ae7faf8d7ea55ba3f9c86689da4a3714c287dea"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/BrooksYang/bech32m/zipball/3ae7faf8d7ea55ba3f9c86689da4a3714c287dea",
+                "reference": "3ae7faf8d7ea55ba3f9c86689da4a3714c287dea",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/bech32m.php",
+                    "src/Exception/Bech32mException.php"
+                ],
+                "psr-4": {
+                    "BrooksYang\\Bech32m\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Brooks Yang",
+                    "homepage": "https://github.com/BrooksYang",
+                    "role": "Author"
+                }
+            ],
+            "description": "Pure (no dependencies) implementation of bech32m in php",
+            "homepage": "https://github.com/BrooksYang/bech32m",
+            "keywords": [
+                "bech32m",
+                "bech32m-php"
+            ],
+            "support": {
+                "issues": "https://github.com/BrooksYang/bech32m/issues",
+                "source": "https://github.com/BrooksYang/bech32m/tree/v1.0.1"
+            },
+            "time": "2021-06-07T03:24:58+00:00"
+        },
+        {
+            "name": "btccom/cashaddress",
+            "version": "v0.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/btccom/cashaddress-php.git",
+                "reference": "29501f7875eca5325d61b4634714028db78bfc5f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/btccom/cashaddress-php/zipball/29501f7875eca5325d61b4634714028db78bfc5f",
+                "reference": "29501f7875eca5325d61b4634714028db78bfc5f",
+                "shasum": ""
+            },
+            "require": {
+                "ext-gmp": "*"
+            },
+            "require-dev": {
+                "ext-json": "*",
+                "phpunit/phpunit": "^5.7",
+                "squizlabs/php_codesniffer": "^3.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "CashAddr\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Implementation of bitcoin cash base32 addresses",
+            "homepage": "https://github.com/btccom/cashaddr-php",
+            "keywords": [
+                "base32",
+                "bitcoin cash",
+                "cashaddr"
+            ],
+            "support": {
+                "issues": "https://github.com/btccom/cashaddr-php/issues",
+                "source": "https://github.com/btccom/cashaddr-php"
+            },
+            "time": "2017-12-29T20:01:44+00:00"
         },
         {
             "name": "comely-io/data-types",
@@ -1384,6 +1528,86 @@
             "time": "2019-03-08T08:55:37+00:00"
         },
         {
+            "name": "shanecurran/phpecc",
+            "version": "v0.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/shanecurran/phpecc.git",
+                "reference": "2f99b2c785e7bac48485b0da7cc1db7d9c0e5d87"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/shanecurran/phpecc/zipball/2f99b2c785e7bac48485b0da7cc1db7d9c0e5d87",
+                "reference": "2f99b2c785e7bac48485b0da7cc1db7d9c0e5d87",
+                "shasum": ""
+            },
+            "require": {
+                "ext-gmp": "*",
+                "fgrosse/phpasn1": "^2.0",
+                "php": "^7.0||^8.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^6.0||^8.0||^9.0",
+                "squizlabs/php_codesniffer": "^2.0",
+                "symfony/yaml": "^2.6|^3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Mdanter\\Ecc\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Matyas Danter",
+                    "homepage": "http://matejdanter.com/",
+                    "role": "Author"
+                },
+                {
+                    "name": "Thibaud Fabre",
+                    "email": "thibaud@aztech.io",
+                    "homepage": "http://aztech.io",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Thomas Kerin",
+                    "email": "afk11@users.noreply.github.com",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Shane Curran",
+                    "email": "shanecurran@users.noreply.github.com",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "PHP Elliptic Curve Cryptography library",
+            "homepage": "https://github.com/shanecurran/phpecc",
+            "keywords": [
+                "Diffie",
+                "ECDSA",
+                "Hellman",
+                "curve",
+                "ecdh",
+                "elliptic",
+                "nistp192",
+                "nistp224",
+                "nistp256",
+                "nistp384",
+                "nistp521",
+                "phpecc",
+                "secp256k1",
+                "secp256r1"
+            ],
+            "support": {
+                "source": "https://github.com/shanecurran/phpecc/tree/v0.0.1"
+            },
+            "time": "2023-03-08T19:51:13+00:00"
+        },
+        {
             "name": "simplito/bigint-wrapper-php",
             "version": "1.0.0",
             "source": {
@@ -1529,6 +1753,48 @@
                 "source": "https://github.com/simplito/elliptic-php/tree/1.0.10"
             },
             "time": "2022-08-12T19:00:25+00:00"
+        },
+        {
+            "name": "stephenhill/base58",
+            "version": "v1.1.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/stephen-hill/base58php.git",
+                "reference": "bd9fc19c788160a2f85ba0a19cd800eaf5ba5e99"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/stephen-hill/base58php/zipball/bd9fc19c788160a2f85ba0a19cd800eaf5ba5e99",
+                "reference": "bd9fc19c788160a2f85ba0a19cd800eaf5ba5e99",
+                "shasum": ""
+            },
+            "require-dev": {
+                "athletic/athletic": "~0.1",
+                "phpunit/phpunit": "4.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "StephenHill\\": "src/",
+                    "StephenHill\\Benchmarks\\": "benchmarks/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Stephen Hill",
+                    "email": "stephen@gatekiller.co.uk"
+                }
+            ],
+            "description": "Base58 Encoding and Decoding Library for PHP",
+            "support": {
+                "issues": "https://github.com/stephen-hill/base58php/issues",
+                "source": "https://github.com/stephen-hill/base58php/tree/v1.1.5"
+            },
+            "time": "2019-08-22T16:51:59+00:00"
         },
         {
             "name": "symfony/deprecation-contracts",
